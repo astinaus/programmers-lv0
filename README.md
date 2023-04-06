@@ -14,10 +14,12 @@
 입출력 예 #2
 - num1이 7, num2가 2이므로 7을 2로 나눈 몫 3을 return 합니다.
 
-정답코드
+제출정답
 ```js
 function solution(num1, num2) {
   return Math.trunc(num1 / num2)
 }
 ```
 참고 : Math.floor() VS Math.trunc() https://velog.io/@sangmin-iam/TIL-Math.trunc-vs-Math.floor
+
+------
