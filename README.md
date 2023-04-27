@@ -570,3 +570,27 @@ function solution(a, b, flag) {
   return flag ? a + b : a - b;
 }
 ```
+
+---
+
+### 2023.04.27
+
+#### 카운트다운
+
+정수 start와 end가 주어질 때, start에서 end까지 1씩 감소하는 수들을 차례로 담은 리스트를 return하도록 solution 함수를 완성해주세요.
+
+입출력 예 #1
+
+10부터 3까지 1씩 감소하는 수를 담은 리스트는 [10, 9, 8, 7, 6, 5, 4, 3]입니다.
+
+```js
+function solution(start, end) {
+  function solution(start, end) {
+    let result = [];
+    for (let i = start; i >= end; i--) {
+      result.push(i);
+    }
+    return result;
+  }
+}
+```
