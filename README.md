@@ -168,7 +168,13 @@ function solution(age) {
 
 ```js
 function solution(angle) {
-  return angle > 0 && angle < 90 ? 1 : angle === 90 ? 2 : angle > 90 && angle < 180 ? 3 : 4;
+  return angle > 0 && angle < 90
+    ? 1
+    : angle === 90
+    ? 2
+    : angle > 90 && angle < 180
+    ? 3
+    : 4;
 }
 ```
 
@@ -301,7 +307,7 @@ function solution(n) {
 
 ```js
 function solution(my_string) {
-  return my_string.replace(/[aeiou]/g, '');
+  return my_string.replace(/[aeiou]/g, "");
 }
 ```
 
@@ -327,7 +333,9 @@ function solution(my_string) {
 
 ```js
 function solution(hp) {
-  return Math.floor(hp / 5) + Math.floor((hp % 5) / 3) + Math.floor((hp % 5) % 3);
+  return (
+    Math.floor(hp / 5) + Math.floor((hp % 5) / 3) + Math.floor((hp % 5) % 3)
+  );
 }
 ```
 
@@ -393,7 +401,7 @@ function solution(n) {
 
 ```js
 function solution(my_str, n) {
-  let reg = new RegExp(`.{1,${n}}`, 'g');
+  let reg = new RegExp(`.{1,${n}}`, "g");
   return my_str.match(reg);
 }
 ```
@@ -450,7 +458,13 @@ function solution(arr, flag) {
 
 ```js
 function solution(ineq, eq, n, m) {
-  return eq === '!' ? (eval(n + ineq + m) ? 1 : 0) : eval(n + ineq + eq + m) ? 1 : 0;
+  return eq === "!"
+    ? eval(n + ineq + m)
+      ? 1
+      : 0
+    : eval(n + ineq + eq + m)
+    ? 1
+    : 0;
 }
 ```
 
@@ -542,10 +556,10 @@ function solution(arr, k) {
 ```js
 function solution(my_string, indices) {
   let result = [];
-  my_string.split('').forEach((el, i) => {
+  my_string.split("").forEach((el, i) => {
     !indices.includes(i) ? result.push(el) : el;
   });
-  return result.join('');
+  return result.join("");
 }
 ```
 
@@ -636,7 +650,9 @@ function solution(n) {
   let arr = Array(n)
     .fill(0)
     .map((el, i) => el + i + 1);
-  return n % 2 === 0 ? arr.filter((el) => el % 2 === 0).reduce((acc, cur) => acc + cur ** 2, 0) : arr.filter((el) => el % 2 !== 0).reduce((acc, cur) => acc + cur, 0);
+  return n % 2 === 0
+    ? arr.filter((el) => el % 2 === 0).reduce((acc, cur) => acc + cur ** 2, 0)
+    : arr.filter((el) => el % 2 !== 0).reduce((acc, cur) => acc + cur, 0);
 }
 ```
 
@@ -661,5 +677,43 @@ function solution(n) {
 ```js
 function solution(str1, str2) {
   return str2.includes(str1) ? 1 : 0;
+}
+```
+
+---
+
+### 2023.05.01
+
+#### 수 조작하기
+
+정수 n과 문자열 control이 주어집니다. control은 "w", "a", "s", "d"의 4개의 문자로 이루어져 있으며, control의 앞에서부터 순서대로 문자에 따라 n의 값을 바꿉니다.
+
+- "w" : n이 1 커집니다.
+- "s" : n이 1 작아집니다.
+- "d" : n이 10 커집니다.
+- "a" : n이 10 작아집니다.
+
+위 규칙에 따라 n을 바꿨을 때 가장 마지막에 나오는 n의 값을 return 하는 solution 함수를 완성해 주세요.
+
+```js
+function solution(n, control) {
+  control.split("").map((el) => {
+    switch (el) {
+      case "w":
+        n += 1;
+        break;
+      case "s":
+        n -= 1;
+        break;
+      case "d":
+        n += 10;
+        break;
+      case "a":
+        n -= 10;
+        break;
+    }
+  });
+
+  return n;
 }
 ```
