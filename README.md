@@ -737,3 +737,28 @@ function solution(arr) {
   );
 }
 ```
+
+---
+
+### 2023.05.03
+
+#### 이어 붙인 수
+
+정수가 담긴 리스트 num_list가 주어집니다. num_list의 홀수만 순서대로 이어 붙인 수와 짝수만 순서대로 이어 붙인 수의 합을 return하도록 solution 함수를 완성해주세요.
+
+입출력 예 #1 [3, 4, 5, 2, 1]
+
+- 홀수만 이어 붙인 수는 351이고 짝수만 이어 붙인 수는 42입니다. 두 수의 합은 393입니다.
+
+입출력 예 #2 [5, 7, 8, 3]
+
+- 홀수만 이어 붙인 수는 573이고 짝수만 이어 붙인 수는 8입니다. 두 수의 합은 581입니다.
+
+```jsx
+function solution(num_list) {
+  return (
+    parseInt(num_list.filter((v) => v % 2 === 0).join("")) +
+    parseInt(num_list.filter((v) => v % 2 !== 0).join(""))
+  );
+}
+```
