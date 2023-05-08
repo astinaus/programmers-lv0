@@ -307,7 +307,7 @@ function solution(n) {
 
 ```js
 function solution(my_string) {
-  return my_string.replace(/[aeiou]/g, "");
+  return my_string.replace(/[aeiou]/g, '');
 }
 ```
 
@@ -401,7 +401,7 @@ function solution(n) {
 
 ```js
 function solution(my_str, n) {
-  let reg = new RegExp(`.{1,${n}}`, "g");
+  let reg = new RegExp(`.{1,${n}}`, 'g');
   return my_str.match(reg);
 }
 ```
@@ -458,7 +458,7 @@ function solution(arr, flag) {
 
 ```js
 function solution(ineq, eq, n, m) {
-  return eq === "!"
+  return eq === '!'
     ? eval(n + ineq + m)
       ? 1
       : 0
@@ -556,10 +556,10 @@ function solution(arr, k) {
 ```js
 function solution(my_string, indices) {
   let result = [];
-  my_string.split("").forEach((el, i) => {
+  my_string.split('').forEach((el, i) => {
     !indices.includes(i) ? result.push(el) : el;
   });
-  return result.join("");
+  return result.join('');
 }
 ```
 
@@ -697,18 +697,18 @@ function solution(str1, str2) {
 
 ```js
 function solution(n, control) {
-  control.split("").map((el) => {
+  control.split('').map((el) => {
     switch (el) {
-      case "w":
+      case 'w':
         n += 1;
         break;
-      case "s":
+      case 's':
         n -= 1;
         break;
-      case "d":
+      case 'd':
         n += 10;
         break;
-      case "a":
+      case 'a':
         n -= 10;
         break;
     }
@@ -757,8 +757,8 @@ function solution(arr) {
 ```jsx
 function solution(num_list) {
   return (
-    parseInt(num_list.filter((v) => v % 2 === 0).join("")) +
-    parseInt(num_list.filter((v) => v % 2 !== 0).join(""))
+    parseInt(num_list.filter((v) => v % 2 === 0).join('')) +
+    parseInt(num_list.filter((v) => v % 2 !== 0).join(''))
   );
 }
 ```
@@ -788,9 +788,9 @@ function solution(order) {
 ```jsx
 function solution(myString, pat) {
   return myString
-    .split("")
-    .map((el) => (el === "A" ? "B" : "A"))
-    .join("")
+    .split('')
+    .map((el) => (el === 'A' ? 'B' : 'A'))
+    .join('')
     .includes(pat)
     ? 1
     : 0;
@@ -807,7 +807,7 @@ function solution(myString, pat) {
 
 ```jsx
 function solution(my_string, index_list) {
-  return index_list.map((v) => my_string[v]).join("");
+  return index_list.map((v) => my_string[v]).join('');
 }
 ```
 
@@ -822,5 +822,38 @@ function solution(my_string, index_list) {
 ```jsx
 function solution(my_string, alp) {
   return my_string.replaceAll(alp, alp.toUpperCase());
+}
+```
+
+---
+
+### 2023.05.08
+
+#### 피자 나눠 먹기(2)
+
+머쓱이네 피자가게는 피자를 여섯 조각으로 잘라 줍니다. 피자를 나눠먹을 사람의 수 n이 매개변수로 주어질 때, n명이 주문한 피자를 남기지 않고 모두 같은 수의 피자 조각을 먹어야 한다면 최소 몇 판을 시켜야 하는지를 return 하도록 solution 함수를 완성해보세요.
+
+입출력 예 #1
+
+- 6명이 모두 같은 양을 먹기 위해 한 판을 시켜야 피자가 6조각으로 모두 한 조각씩 먹을 수 있습니다.
+
+입출력 예 #2
+
+- 10명이 모두 같은 양을 먹기 위해 최소 5판을 시켜야 피자가 30조각으로 모두 세 조각씩 먹을 수 있습니다.
+
+입출력 예 #3
+
+- 4명이 모두 같은 양을 먹기 위해 최소 2판을 시키면 피자가 12조각으로 모두 세 조각씩 먹을 수 있습니다.
+
+```js
+function solution(n) {
+  let result = 0;
+  for (let i = 1; i <= n; i++) {
+    if ((6 * i) % n === 0) {
+      result += i;
+      break;
+    }
+  }
+  return result;
 }
 ```
