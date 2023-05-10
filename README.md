@@ -883,12 +883,10 @@ function solution(array) {
 
 ```js
 function solution(age) {
-  const alp = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
   return age
     .toString()
     .split('')
-    .map((el) => parseInt(el))
-    .map((el) => alp[el])
+    .map((el) => 'abcdefghij'[el])
     .join('');
 }
 ```
