@@ -1066,3 +1066,31 @@ function solution(n, numlist) {
   return numlist.filter((v) => v % n === 0);
 }
 ```
+
+---
+
+### 2023.05.21
+
+#### 약수 구하기
+
+정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.
+
+```js
+// reduce 활용
+function solution(n) {
+  let answer = [];
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) answer.push(i);
+  }
+  return answer.reduce((acc, cur) => acc + cur, 0);
+}
+
+// reduce 활용하지 않음
+function solution(n) {
+  let answer = 0;
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) answer += i;
+  }
+  return answer;
+}
+```
