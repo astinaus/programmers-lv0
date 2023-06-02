@@ -7,18 +7,18 @@
 // 위 규칙에 따라 n을 바꿨을 때 가장 마지막에 나오는 n의 값을 return 하는 solution 함수를 완성해 주세요.
 
 function solution(n, control) {
-  control.split("").map((el) => {
+  control.split('').map((el) => {
     switch (el) {
-      case "w":
+      case 'w':
         n += 1;
         break;
-      case "s":
+      case 's':
         n -= 1;
         break;
-      case "d":
+      case 'd':
         n += 10;
         break;
-      case "a":
+      case 'a':
         n -= 10;
         break;
     }
